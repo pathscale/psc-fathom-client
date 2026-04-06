@@ -1,0 +1,31 @@
+{
+  "name": "@pathscale/psc-fathom-client",
+  "version": "0.1.0",
+  "description": "Bundled Fathom Analytics tracker as a clean ESM module — no CDN, no external scripts",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
+  },
+  "keywords": ["fathom", "analytics", "esm", "bundled"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pathscale/psc-fathom-client"
+  }
+}
