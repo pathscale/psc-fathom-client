@@ -1,5 +1,5 @@
 {
-  "name": "@pathscale/psc-fathom-client",
+  "name": "psc-fathom-client",
   "version": "0.1.0",
   "description": "Bundled Fathom Analytics tracker as a clean ESM module — no CDN, no external scripts",
   "type": "module",

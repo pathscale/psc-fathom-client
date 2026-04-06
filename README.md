@@ -1,4 +1,4 @@
-# @pathscale/psc-fathom-client
+# psc-fathom-client
 
 Bundled [Fathom Analytics](https://usefathom.com) tracker as a clean ESM module.
 
@@ -14,7 +14,7 @@ Adapted from the [official Fathom script](https://cdn.usefathom.com/script.js).
 ## Installation
 
 ```bash
-npm install @pathscale/psc-fathom-client
+npm install psc-fathom-client
 ```
 
 ## Motivation
@@ -32,7 +32,7 @@ This package bundles the tracker logic directly into your app. The JavaScript ne
 ## Usage
 
 ```ts
-import * as Fathom from "@pathscale/psc-fathom-client";
+import * as Fathom from "psc-fathom-client";
 
 // Initialize — auto: false disables the automatic first pageview
 Fathom.load("MY_FATHOM_ID", { auto: false });
@@ -69,7 +69,7 @@ Initialize the tracker. Call once on app startup.
 #### Example
 
 ```ts
-import { load } from "@pathscale/psc-fathom-client";
+import { load } from "psc-fathom-client";
 
 load("MY_FATHOM_ID", {
   auto: false,
@@ -90,7 +90,7 @@ Tracks a pageview. Automatically flushes the previous page's departure ping befo
 #### Example
 
 ```ts
-import { trackPageview } from "@pathscale/psc-fathom-client";
+import { trackPageview } from "psc-fathom-client";
 
 trackPageview();
 ```
@@ -107,7 +107,7 @@ Tracks a custom event.
 #### Example
 
 ```ts
-import { trackEvent } from "@pathscale/psc-fathom-client";
+import { trackEvent } from "psc-fathom-client";
 
 trackEvent("checkout completed", { _value: 100 });
 ```
@@ -124,7 +124,7 @@ Tracks a conversion goal.
 #### Example
 
 ```ts
-import { trackGoal } from "@pathscale/psc-fathom-client";
+import { trackGoal } from "psc-fathom-client";
 
 trackGoal("MY_GOAL_CODE", 100);
 ```
@@ -154,7 +154,7 @@ Returns `true` if tracking is currently active for the visitor.
 ```ts
 import { createEffect, onMount } from "solid-js";
 import { useLocation } from "@solidjs/router";
-import * as Fathom from "@pathscale/psc-fathom-client";
+import * as Fathom from "psc-fathom-client";
 
 function App() {
   const location = useLocation();
@@ -174,7 +174,7 @@ function App() {
 ```jsx
 import { useEffect } from "react";
 import { useLocation } from "react-router";
-import * as Fathom from "@pathscale/psc-fathom-client";
+import * as Fathom from "psc-fathom-client";
 
 function FathomAnalytics() {
   const location = useLocation();
@@ -196,7 +196,7 @@ function FathomAnalytics() {
 ```tsx
 "use client";
 
-import { load, trackPageview } from "@pathscale/psc-fathom-client";
+import { load, trackPageview } from "psc-fathom-client";
 import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 

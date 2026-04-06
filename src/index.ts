@@ -62,6 +62,9 @@ function extractQueryString(): Record<string, string> {
 }
 
 function isTrackingAllowed(): boolean {
+  const hostname = window.location.hostname;
+  if (hostname === "localhost" || hostname === "127.0.0.1" || hostname === "[::1]") return false;
+
   let blocked = false;
   try {
     blocked = !!(window.localStorage && window.localStorage.getItem("blockFathomTracking"));
@@ -69,7 +72,6 @@ function isTrackingAllowed(): boolean {
     /* private browsing */
   }
 
-  const hostname = window.location.hostname;
   const prerender =
     "visibilityState" in document && (document.visibilityState as string) === "prerender";
   const isExcluded = excludedDomains.indexOf(hostname) >= 0;
@@ -232,16 +234,12 @@ export function setSite(id: string) {
 export function blockTrackingForMe() {
   if (window.localStorage) {
     window.localStorage.setItem("blockFathomTracking", "true");
-    alert("You have blocked Fathom for yourself on this website.");
-  } else {
-    alert("Your browser doesn't support localStorage.");
   }
 }
 
 export function enableTrackingForMe() {
   if (window.localStorage) {
     window.localStorage.removeItem("blockFathomTracking");
-    alert("Fathom has been enabled for this website.");
   }
 }
 
