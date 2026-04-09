@@ -185,7 +185,7 @@ export function trackPageview(params: { url?: string; referrer?: string } = {}) 
   if (!loc.hostname) return;
   const hostname = loc.protocol + "//" + loc.hostname;
   const pathname = loc.pathname || "/";
-  sendPixel({
+  sendBeaconRequest({
     h: hostname,
     p: pathname,
     r: params.referrer || (document.referrer.indexOf(hostname) < 0 ? document.referrer : ""),
